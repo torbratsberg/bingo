@@ -1,0 +1,12 @@
+#!/bin/bash
+
+for file in `find . -name "*.php"`
+do
+    echo $file
+    RESULTS=`php -l $file`
+
+    if [ "$RESULTS" != "No syntax errors detected in $file" ]
+    then
+        echo $RESULTS
+    fi
+done

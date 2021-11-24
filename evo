@@ -1,0 +1,8 @@
+#! /usr/local/bin/python3
+
+import requests
+
+res = requests.get('https://visits.evofitness.no/api/v1/locations/b86b620f-ff98-44f8-a9d5-5e4c74e925ca/current')
+a = res.json()
+t = 'There are %d / %d people at Evo Vika.' % (a['current'], a['max_capacity'])
+print(t)

@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+echo "Enter your block names seperated by spaces."
+read -p "Block names: " names
+
+for name in $(echo $names | tr " " "\n"); do
+	mkdir $name
+	mkdir "$name/assets"
+	touch "$name/assets/$name.scss"
+	touch "$name/template.php"
+	touch "$name/block.json"
+	echo "{" >> "$name/block.json"
+	echo "	\"parser_version\"   : 1,"          >> "$name/block.json"
+	echo "	\"name\"             : \"$name\","  >> "$name/block.json"
+	echo "	\"title\"            : \"$name\","  >> "$name/block.json"
+	echo "	\"icon\"             : \"$name\","  >> "$name/block.json"
+	echo "	\"includedPostTypes\": [\"page\"]," >> "$name/block.json"
+	echo "}" >> "$name/block.json"
+done

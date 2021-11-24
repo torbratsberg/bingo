@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+fd -t f -d 10 | fzf | xargs nvim

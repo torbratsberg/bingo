@@ -14,6 +14,6 @@ for name in $(echo $names | tr " " "\n"); do
 	echo "	\"name\"             : \"$name\","  >> "$name/block.json"
 	echo "	\"title\"            : \"$name\","  >> "$name/block.json"
 	echo "	\"icon\"             : \"$name\","  >> "$name/block.json"
-	echo "	\"includedPostTypes\": [\"page\"]," >> "$name/block.json"
+	echo "	\"includedPostTypes\": [\"page\"]"  >> "$name/block.json"
 	echo "}" >> "$name/block.json"
 done

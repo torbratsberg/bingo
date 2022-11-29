@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# Exit if dirty
+if [[ $(git diff --stat) != '' ]]; then
+    echo "Clean repo first."
+    exit
+fi
+
+git checkout develop
+git pull
+
+echo ""
+
+echo "Enter Jira URL:"
+read jiraURL
+jiraURL=$(basename "$jiraURL")
+
+echo "Enter branch name:"
+read branchName
+
+git checkout -b "feature/$jiraURL-$branchName"

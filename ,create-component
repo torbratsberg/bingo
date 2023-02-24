@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+echo "Enter your component name."
+read -p "Component names: " NAME
+
+echo "Include files for services?"
+read -p "(y|n): " HAS_SERVICES
+
+mkdir $NAME
+touch "$NAME/$NAME.component.ts"
+touch "$NAME/$NAME.component.html"
+
+if [ "$HAS_SERVICES" != "n" ]
+then
+    touch "$NAME/$NAME-backend.service.ts"
+    touch "$NAME/$NAME.service.ts"
+fi

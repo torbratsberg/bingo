@@ -1,11 +1,5 @@
 #!/usr/bin/env bash
 
-# Exit if dirty
-if [[ $(git diff --stat) != '' ]]; then
-    echo "Clean repo first."
-    exit
-fi
-
 git checkout develop
 git pull
 
